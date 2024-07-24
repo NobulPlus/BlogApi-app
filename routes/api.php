@@ -17,5 +17,5 @@ Route::apiResource('blogs', BlogController::class);
 Route::apiResource('blogs.posts', PostController::class);
 
 Route::get('/', function () {
-    return 'API';
+    return 'API OKAY';
 });
