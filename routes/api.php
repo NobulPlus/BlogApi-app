@@ -16,6 +16,10 @@ Route::apiResource('blogs', BlogController::class);
 // Post Endpoints under a Specific Blog
 Route::apiResource('blogs.posts', PostController::class);
 
+// Interaction Endpoints
+Route::post('posts/{post}/like', [InteractionController::class, 'like']);
+Route::post('posts/{post}/comment', [InteractionController::class, 'comment']);
+
 Route::get('/', function () {
     return 'API OKAY';
 });
