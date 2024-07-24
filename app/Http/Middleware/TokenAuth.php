@@ -15,7 +15,7 @@ class TokenAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->header('Authorization') !== 'Bearer vg@123') {
+        if ($request->header('Authorization') !== 'vg@123') {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
