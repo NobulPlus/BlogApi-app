@@ -15,8 +15,11 @@ class TokenAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->header('Authorization') !== 'vg@123') {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        $expectedToken = 'vg123';
+        $authHeader = $request->header('Authorization');
+
+        if (!$authHeader || !preg_match('/^Bearer\s(\S+)$/', $authHeader, $matches) || $matches[1] !== $expectedToken) {
+            return response()->json(['message' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
         }
 
         return $next($request);

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\InteractionController;
+use App\Http\Controllers\AuthController;
 
 // Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 //     return $request->user();
@@ -23,3 +24,13 @@ Route::post('posts/{post}/comment', [InteractionController::class, 'comment']);
 Route::get('/', function () {
     return 'API OKAY';
 });
+
+// Registration route
+Route::post('register', [AuthController::class, 'register']);
+
+// Login route
+Route::post('login', [AuthController::class, 'login']);
+
+// Logout route (protected by middleware)
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+

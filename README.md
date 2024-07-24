@@ -146,6 +146,9 @@ A successful response should return the created post details:
     "updated_at": "2024-07-24T12:34:56.000000Z"
 }
 
+Github link - https://github.com/NobulPlus/BlogApi-app.git
+Postman Document link - https://documenter.getpostman.com/view/16995065/2sA3kXDzob
+
 Middleware
 The API is protected by a custom token middleware. All requests must include the following header:
 token: vg@123
